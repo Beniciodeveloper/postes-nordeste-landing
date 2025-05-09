@@ -45,12 +45,18 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Postes Nordeste S.A. Todos os direitos reservados.
           </p>
           
-          <div className="flex space-x-4">
+          <div className="flex flex-wrap space-x-4">
             <a href="#" className="text-sm text-gray-400 hover:text-postes-red transition-colors">
               Política de privacidade
             </a>
             <a href="#" className="text-sm text-gray-400 hover:text-postes-red transition-colors">
               Termos de uso
+            </a>
+            <a href="#" className="text-sm text-gray-400 hover:text-postes-red transition-colors">
+              Cookies
+            </a>
+            <a href="#" className="text-sm text-gray-400 hover:text-postes-red transition-colors">
+              LGPD
             </a>
           </div>
         </div>

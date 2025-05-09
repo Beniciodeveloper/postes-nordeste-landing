@@ -1,37 +1,16 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import Button from './Button';
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
   
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
   
   return (
-    <header 
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
-      }`}
-    >
+    <header className="fixed w-full z-50 bg-white shadow-md py-2">
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
@@ -54,9 +33,6 @@ const Header = () => {
           <a href="#contato" className="text-postes-gray-dark hover:text-postes-red font-medium transition-colors">
             Contato
           </a>
-          <Button>
-            Solicite um orçamento
-          </Button>
         </nav>
         
         {/* Mobile menu button */}
@@ -101,17 +77,6 @@ const Header = () => {
             >
               Contato
             </a>
-            <Button 
-              onClick={() => {
-                setMobileMenuOpen(false);
-                const contactSection = document.getElementById('contato');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              Solicite um orçamento
-            </Button>
           </nav>
         </div>
       )}

@@ -1,5 +1,6 @@
 
 import { Factory, Building } from 'lucide-react';
+import ProductCarousel from './ProductCarousel';
 
 const Products = () => {
   return (
@@ -82,6 +83,9 @@ const Products = () => {
             </ul>
           </div>
         </div>
+        
+        {/* Product Carousel */}
+        <ProductCarousel />
       </div>
     </section>
   );

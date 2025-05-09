@@ -1,9 +1,9 @@
 
 const Clients = () => {
-  // Normally, we'd use real client logos here, but for this example we'll use dummy content
+  // Updated client list (removed ABB)
   const clients = [
     "Coelba", "Celpe", "Equatorial", "Energisa", "Enel", 
-    "Petrobras", "Oi", "Vivo", "CHESF", "Odebrecht", "ABB"
+    "Petrobras", "Oi", "Vivo", "CHESF", "Odebrecht"
   ];
 
   return (
@@ -18,12 +18,12 @@ const Clients = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 animate-on-scroll">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 animate-on-scroll">
           {clients.map((client, index) => (
             <div 
               key={index} 
-              className="bg-white p-8 rounded-md shadow-sm flex items-center justify-center 
-                       aspect-video transition-all hover:shadow-md"
+              className="bg-white p-6 rounded-full shadow-sm flex items-center justify-center 
+                       aspect-square transition-all hover:shadow-md"
             >
               <span className="font-montserrat font-bold text-xl text-postes-gray-dark">{client}</span>
             </div>

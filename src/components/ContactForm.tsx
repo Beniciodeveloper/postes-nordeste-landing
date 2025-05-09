@@ -1,36 +1,7 @@
 
-import { useState } from 'react';
-import Button from './Button';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    message: '',
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Here you would normally send the data to your backend
-    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      message: '',
-    });
-  };
-
   return (
     <section id="contato" className="section-padding bg-white">
       <div className="container mx-auto">
@@ -40,8 +11,8 @@ const ContactForm = () => {
               Entre em <span className="text-postes-red">Contato</span>
             </h2>
             <p className="mb-8 text-postes-gray-dark">
-              Preencha o formulário e nossa equipe entrará em contato para atender sua necessidade 
-              com agilidade e profissionalismo.
+              Encontre-nos em nossa matriz e unidades regionais ou entre em contato 
+              através dos nossos canais de atendimento.
             </p>
             
             <div className="space-y-6">
@@ -77,87 +48,18 @@ const ContactForm = () => {
             </div>
           </div>
           
-          <div className="animate-on-scroll">
-            <form onSubmit={handleSubmit} className="bg-postes-gray-light p-8 rounded-md shadow-sm">
-              <div className="mb-4">
-                <label htmlFor="name" className="block text-postes-gray-dark mb-2 font-medium">
-                  Nome completo
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-postes-red"
-                  required
-                />
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label htmlFor="email" className="block text-postes-gray-dark mb-2 font-medium">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-postes-red"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-postes-gray-dark mb-2 font-medium">
-                    Telefone
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-postes-red"
-                    required
-                  />
-                </div>
-              </div>
-              
-              <div className="mb-4">
-                <label htmlFor="company" className="block text-postes-gray-dark mb-2 font-medium">
-                  Empresa
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-postes-red"
-                />
-              </div>
-              
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-postes-gray-dark mb-2 font-medium">
-                  Mensagem
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-postes-red"
-                  required
-                ></textarea>
-              </div>
-              
-              <Button type="submit">
-                Solicitar orçamento
-              </Button>
-            </form>
+          <div className="animate-on-scroll h-[400px] md:h-[500px]">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7796.657163149982!2d-38.45236454214418!3d-12.807340368284007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x71614a7f5fc6339%3A0x62db8f08bfc3df54!2sPostes%20Nordeste!5e0!3m2!1spt-BR!2sbr!4v1714927685103!5m2!1spt-BR!2sbr" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0, borderRadius: '8px' }}
+              allowFullScreen={false} 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Localização Postes Nordeste"
+              className="shadow-md"
+            ></iframe>
           </div>
         </div>
       </div>
