@@ -1,5 +1,4 @@
-
-import { Award, Building, Factory, MapPin, Users } from 'lucide-react';
+import { Award, Building, Factory, MapPin, Users, ShieldCheck } from 'lucide-react';
 
 const Differentials = () => {
   const differentials = [
@@ -27,6 +26,11 @@ const Differentials = () => {
       icon: <Users className="w-8 h-8 text-postes-red" />,
       title: "Soluções completas",
       description: "Atendimento a projetos urbanos, rurais e industriais"
+    },
+    {
+      icon: <ShieldCheck className="w-8 h-8 text-postes-red" />,
+      title: "Garantia de qualidade",
+      description: "Produtos certificados e testados conforme normas técnicas"
     }
   ];
 
