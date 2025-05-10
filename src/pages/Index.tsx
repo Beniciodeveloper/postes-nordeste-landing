@@ -5,6 +5,7 @@ import About from '@/components/About';
 import Products from '@/components/Products';
 import Differentials from '@/components/Differentials';
 import Clients from '@/components/Clients';
+import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import { useEffect } from 'react';
 
@@ -41,6 +42,7 @@ const Index = () => {
       <Products />
       <Differentials />
       <Clients />
+      <ContactSection />
       <Footer />
     </div>
   );
