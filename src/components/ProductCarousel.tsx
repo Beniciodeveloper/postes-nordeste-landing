@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { 
   Carousel, 
@@ -21,7 +20,6 @@ type ProductCategory =
 interface Product {
   id: number;
   name: string;
-  description: string;
   image: string;
   category: ProductCategory;
 }
@@ -34,59 +32,99 @@ const ProductCarousel = () => {
     {
       id: 1,
       name: "Poste DT 9/300",
-      description: "Poste de concreto seção DT (tipo D)",
-      image: "/placeholder.svg",
+      image: "/prod1.jpg",
       category: 'postes-dt'
     },
     {
       id: 2,
       name: "Poste DT 11/300",
-      description: "Poste de concreto seção DT (tipo B)",
-      image: "/placeholder.svg",
+      image: "/prod2.jpg",
       category: 'postes-dt'
     },
     {
       id: 3,
       name: "Poste Circular 12m",
-      description: "Poste de concreto seção circular (tipo R)",
-      image: "/placeholder.svg",
+      image: "/postecircular.jpg",
       category: 'postes-circular'
     },
     {
       id: 4,
       name: "Poste RC 10/350",
-      description: "Poste de concreto seção circular conicidade reduzida",
-      image: "/placeholder.svg",
+      image: "/postecircularreduzido.jpg",
       category: 'postes-rc'
     },
     {
       id: 5,
       name: "Cruzeta 2000mm",
-      description: "Cruzeta para rede de distribuição",
-      image: "/placeholder.svg",
+      image: "/cruzeta1.jpg",
       category: 'cruzetas'
     },
     {
       id: 6,
       name: "Torres LT 69kV",
-      description: "Estruturas para linhas de transmissão",
-      image: "/placeholder.svg",
-      category: 'linhas-transmissao'
+      image: "/cruzeta2.jpg",
+      category: 'cruzetas'
     },
     {
       id: 7,
       name: "Estrutura para SE",
-      description: "Pórtico para subestação",
-      image: "/placeholder.svg",
-      category: 'subestacoes'
+      image: "/cruzeta3.jpg",
+      category: 'cruzetas'
     },
     {
       id: 8,
       name: "Pilares para galpão",
-      description: "Estruturas para montagem de galpões",
-      image: "/placeholder.svg",
+      image: "/trans1.jpg",
+      category: 'linhas-transmissao'
+    },
+    {
+      id: 9,
+      name: "Pilares para galpão",
+      image: "/sub1.jpg",
+      category: 'subestacoes'
+    },
+    {
+      id: 10,
+      name: "Pilares para galpão",
+      image: "/sub2.jpg",
+      category: 'subestacoes'
+    },
+    {
+      id: 11,
+      name: "Pilares para galpão",
+      image: "/sub3.jpg",
+      category: 'subestacoes'
+    },
+    {
+      id: 12,
+      name: "Pilares para galpão",
+      image: "/sub4.jpg",
+      category: 'subestacoes'
+    },
+    {
+      id: 13,
+      name: "Estrutura para galpão",
+      image: "/galp1.jpg",
       category: 'galpoes'
     },
+    {
+      id: 14,
+      name: "Estrutura para galpão",
+      image: "/galp2.jpg",
+      category: 'galpoes'
+    },
+    {
+      id: 15,
+      name: "Estrutura para galpão",
+      image: "/galp3.jpg",
+      category: 'galpoes'
+    },
+    {
+      id: 16,
+      name: "Estrutura para galpão",
+      image: "/galp4.jpg",
+      category: 'galpoes'
+    }
   ];
   
   // Filter categories with display names
@@ -141,7 +179,6 @@ const ProductCarousel = () => {
                   />
                 </div>
                 <h4 className="font-bold text-postes-gray-dark mb-1">{product.name}</h4>
-                <p className="text-sm text-postes-gray-dark">{product.description}</p>
               </div>
             </CarouselItem>
           ))}

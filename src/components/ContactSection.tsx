@@ -1,4 +1,3 @@
-
 import { MapPin, Phone, Mail } from 'lucide-react';
 import { useState } from 'react';
 
@@ -139,17 +138,17 @@ const ContactSection = () => {
             )}
           </div>
           
-          <div className="animate-on-scroll h-[400px] md:h-[500px]">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7796.657163149982!2d-38.45236454214418!3d-12.807340368284007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x71614a7f5fc6339%3A0x62db8f08bfc3df54!2sPostes%20Nordeste!5e0!3m2!1spt-BR!2sbr!4v1714927685103!5m2!1spt-BR!2sbr" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0, borderRadius: '8px' }}
-              allowFullScreen={false} 
-              loading="lazy" 
+          <div className="animate-on-scroll h-[300px] md:h-[500px] flex justify-center items-center w-full">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7796.657163149982!2d-38.45236454214418!3d-12.807340368284007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x71614a7f5fc6339%3A0x62db8f08bfc3df54!2sPostes%20Nordeste!5e0!3m2!1spt-BR!2sbr!4v1714927685103!5m2!1spt-BR!2sbr"
+              width="100%"
+              height="100%"
+              style={{ border: 0, borderRadius: '8px', maxWidth: '100%', display: 'block' }}
+              allowFullScreen={false}
+              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Localização Postes Nordeste"
-              className="shadow-md"
+              className="shadow-md w-full max-w-full h-full mx-auto"
             ></iframe>
           </div>
         </div>

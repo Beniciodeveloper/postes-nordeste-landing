@@ -1,8 +1,60 @@
-
-import { Factory, Building } from 'lucide-react';
+import { Factory, Building, Zap, Power, Lightbulb, Warehouse, Anchor, Home, Blocks, Wrench } from 'lucide-react';
 import ProductCarousel from './ProductCarousel';
 
 const Products = () => {
+  const products = [
+    {
+      icon: <Zap className="w-5 h-5 text-postes-red" />,
+      name: "Postes DT e circulares",
+      category: "Eletrificação"
+    },
+    {
+      icon: <Power className="w-5 h-5 text-postes-red" />,
+      name: "Estruturas para redes de distribuição e subestações",
+      category: "Eletrificação"
+    },
+    {
+      icon: <Factory className="w-5 h-5 text-postes-red" />,
+      name: "Cruzetas, anéis, vigas e colunas",
+      category: "Eletrificação"
+    },
+    {
+      icon: <Lightbulb className="w-5 h-5 text-postes-red" />,
+      name: "Redes de distribuição aérea e subterrânea",
+      category: "Eletrificação"
+    },
+    {
+      icon: <Power className="w-5 h-5 text-postes-red" />,
+      name: "Estruturas para iluminação pública",
+      category: "Eletrificação"
+    },
+    {
+      icon: <Warehouse className="w-5 h-5 text-postes-red" />,
+      name: "Galpões e estruturas industriais",
+      category: "Pré-moldados"
+    },
+    {
+      icon: <Anchor className="w-5 h-5 text-postes-red" />,
+      name: "Estacas e mourões",
+      category: "Pré-moldados"
+    },
+    {
+      icon: <Home className="w-5 h-5 text-postes-red" />,
+      name: "Estábulos, abrigos e currais",
+      category: "Pré-moldados"
+    },
+    {
+      icon: <Blocks className="w-5 h-5 text-postes-red" />,
+      name: "Blocos estruturais",
+      category: "Pré-moldados"
+    },
+    {
+      icon: <Wrench className="w-5 h-5 text-postes-red" />,
+      name: "Soluções customizadas para construção civil",
+      category: "Pré-moldados"
+    }
+  ];
+
   return (
     <section id="produtos" className="section-padding bg-postes-gray-light">
       <div className="container mx-auto">
@@ -16,71 +68,32 @@ const Products = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-10">
-          {/* Eletrificação */}
-          <div className="bg-white p-8 rounded shadow-md animate-on-scroll">
-            <div className="flex items-center mb-6">
-              <div className="bg-postes-red/10 p-3 rounded-full mr-4">
-                <Factory className="w-6 h-6 text-postes-red" />
-              </div>
-              <h3 className="text-2xl font-bold text-postes-red">Eletrificação</h3>
-            </div>
-            
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <span className="inline-block w-2 h-2 bg-postes-red rounded-full mt-2 mr-2"></span>
-                <span className="text-postes-gray-dark">Postes DT e circulares</span>
-              </li>
-              <li className="flex items-start">
-                <span className="inline-block w-2 h-2 bg-postes-red rounded-full mt-2 mr-2"></span>
-                <span className="text-postes-gray-dark">Estruturas para redes de distribuição e subestações</span>
-              </li>
-              <li className="flex items-start">
-                <span className="inline-block w-2 h-2 bg-postes-red rounded-full mt-2 mr-2"></span>
-                <span className="text-postes-gray-dark">Cruzetas, anéis, vigas e colunas</span>
-              </li>
-              <li className="flex items-start">
-                <span className="inline-block w-2 h-2 bg-postes-red rounded-full mt-2 mr-2"></span>
-                <span className="text-postes-gray-dark">Redes de distribuição aérea e subterrânea</span>
-              </li>
-              <li className="flex items-start">
-                <span className="inline-block w-2 h-2 bg-postes-red rounded-full mt-2 mr-2"></span>
-                <span className="text-postes-gray-dark">Estruturas para iluminação pública</span>
-              </li>
-            </ul>
+        <div className="bg-white p-8 rounded shadow-md animate-on-scroll mb-16">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-postes-red">Nossa Linha de Produtos</h3>
           </div>
           
-          {/* Pré-moldados */}
-          <div className="bg-white p-8 rounded shadow-md animate-on-scroll">
-            <div className="flex items-center mb-6">
-              <div className="bg-postes-red/10 p-3 rounded-full mr-4">
-                <Building className="w-6 h-6 text-postes-red" />
-              </div>
-              <h3 className="text-2xl font-bold text-postes-red">Pré-moldados</h3>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              {products.slice(0, 5).map((product, index) => (
+                <div key={index} className="flex items-start">
+                  <div className="bg-postes-red/10 p-2 rounded-full mr-4 mt-1">
+                    {product.icon}
+                  </div>
+                  <span className="text-postes-gray-dark">{product.name}</span>
+                </div>
+              ))}
             </div>
-            
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <span className="inline-block w-2 h-2 bg-postes-red rounded-full mt-2 mr-2"></span>
-                <span className="text-postes-gray-dark">Galpões e estruturas industriais</span>
-              </li>
-              <li className="flex items-start">
-                <span className="inline-block w-2 h-2 bg-postes-red rounded-full mt-2 mr-2"></span>
-                <span className="text-postes-gray-dark">Estacas e mourões</span>
-              </li>
-              <li className="flex items-start">
-                <span className="inline-block w-2 h-2 bg-postes-red rounded-full mt-2 mr-2"></span>
-                <span className="text-postes-gray-dark">Estábulos, abrigos e currais</span>
-              </li>
-              <li className="flex items-start">
-                <span className="inline-block w-2 h-2 bg-postes-red rounded-full mt-2 mr-2"></span>
-                <span className="text-postes-gray-dark">Blocos estruturais</span>
-              </li>
-              <li className="flex items-start">
-                <span className="inline-block w-2 h-2 bg-postes-red rounded-full mt-2 mr-2"></span>
-                <span className="text-postes-gray-dark">Soluções customizadas para construção civil</span>
-              </li>
-            </ul>
+            <div className="space-y-6">
+              {products.slice(5).map((product, index) => (
+                <div key={index} className="flex items-start">
+                  <div className="bg-postes-red/10 p-2 rounded-full mr-4 mt-1">
+                    {product.icon}
+                  </div>
+                  <span className="text-postes-gray-dark">{product.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         

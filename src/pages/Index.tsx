@@ -1,5 +1,3 @@
-
-import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Products from '@/components/Products';
@@ -7,6 +5,7 @@ import Differentials from '@/components/Differentials';
 import Clients from '@/components/Clients';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import { useEffect } from 'react';
 
 const Index = () => {

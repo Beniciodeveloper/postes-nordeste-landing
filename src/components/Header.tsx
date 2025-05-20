@@ -1,85 +1,81 @@
-
-import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
-  
+
   return (
-    <header className="fixed w-full z-50 bg-white shadow-md py-2">
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        {/* Logo */}
-        <div className="flex items-center">
-          <h1 className="text-xl md:text-2xl font-bold text-postes-red">
-            <span className="font-black">POSTES</span> NORDESTE S.A.
-          </h1>
-        </div>
-        
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <a href="#sobre" className="text-postes-gray-dark hover:text-postes-red font-medium transition-colors">
-            Sobre
-          </a>
-          <a href="#produtos" className="text-postes-gray-dark hover:text-postes-red font-medium transition-colors">
-            Produtos
-          </a>
-          <a href="#clientes" className="text-postes-gray-dark hover:text-postes-red font-medium transition-colors">
-            Clientes
-          </a>
-          <a href="#contato" className="text-postes-gray-dark hover:text-postes-red font-medium transition-colors">
-            Contato
-          </a>
-        </nav>
-        
-        {/* Mobile menu button */}
-        <button 
-          className="md:hidden text-postes-gray-dark p-2"
-          onClick={toggleMobileMenu}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-      
-      {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-16 bg-white z-40 p-4">
-          <nav className="flex flex-col space-y-6 items-center pt-8">
-            <a 
-              href="#sobre" 
-              className="text-xl text-postes-gray-dark hover:text-postes-red font-medium"
-              onClick={() => setMobileMenuOpen(false)}
-            >
+    <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center h-24">
+          <img 
+            src="./POSTES E GALPÕES NORDESTE.webp" 
+            alt="Logo Postes Nordeste" 
+            className="w-40 sm:w-44 md:w-48"
+          />
+          
+          {/* Mobile menu button */}
+          <button 
+            className="text-postes-gray-dark p-2 md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-8">
+            <a href="#sobre" className="text-postes-gray-dark hover:text-postes-red font-medium">
               Sobre
             </a>
-            <a 
-              href="#produtos" 
-              className="text-xl text-postes-gray-dark hover:text-postes-red font-medium"
-              onClick={() => setMobileMenuOpen(false)}
-            >
+            <a href="#produtos" className="text-postes-gray-dark hover:text-postes-red font-medium">
               Produtos
             </a>
-            <a 
-              href="#clientes" 
-              className="text-xl text-postes-gray-dark hover:text-postes-red font-medium"
-              onClick={() => setMobileMenuOpen(false)}
-            >
+            <a href="#clientes" className="text-postes-gray-dark hover:text-postes-red font-medium">
               Clientes
             </a>
-            <a 
-              href="#contato" 
-              className="text-xl text-postes-gray-dark hover:text-postes-red font-medium"
-              onClick={() => setMobileMenuOpen(false)}
-            >
+            <a href="#contato" className="text-postes-gray-dark hover:text-postes-red font-medium">
               Contato
             </a>
           </nav>
         </div>
-      )}
+
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-t">
+            <nav className="flex flex-col space-y-4 p-4">
+              <a 
+                href="#sobre" 
+                className="text-postes-gray-dark hover:text-postes-red font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Sobre
+              </a>
+              <a 
+                href="#produtos" 
+                className="text-postes-gray-dark hover:text-postes-red font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Produtos
+              </a>
+              <a 
+                href="#clientes" 
+                className="text-postes-gray-dark hover:text-postes-red font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Clientes
+              </a>
+              <a 
+                href="#contato" 
+                className="text-postes-gray-dark hover:text-postes-red font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contato
+              </a>
+            </nav>
+          </div>
+        )}
+      </div>
     </header>
   );
 };
