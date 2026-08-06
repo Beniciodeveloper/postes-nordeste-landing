@@ -75,15 +75,15 @@ const GovernancePolicies: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
           <div className="inline-flex items-center space-x-2 bg-slate-900 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-            <Lock className="w-3.5 h-3.5 text-postes-red" />
+            <Lock className="w-3.5 h-3.5 text-[#FF2E17]" />
             <span>Governança Corporativa & Compliance</span>
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 font-heading tracking-tight">
-            Políticas Corporativas e <span className="text-postes-red">Código de Ética</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 font-heading tracking-tight">
+            Políticas Corporativas e <span className="text-[#FF2E17]">Código de Ética</span>
           </h2>
 
-          <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+          <p className="text-slate-500 text-base leading-relaxed">
             Transparência, integridade e responsabilidade socioambiental norteiam nossa liderança de 60 anos no mercado nacional.
           </p>
         </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Globe, Send, MessageSquare, Clock, Building2, CheckCircle2 } from 'lucide-react';
+import { MapPin, Phone, Mail, Building2, CheckCircle2, MessageCircle } from 'lucide-react';
 
 type LocationData = {
   name: string;
@@ -14,7 +14,8 @@ type LocationData = {
 
 const ContactSection: React.FC = () => {
   const [selectedLocation, setSelectedLocation] = useState<string>("MATRIZ (ARATU - BA)");
-  const [formSent, setFormSent] = useState(false);
+
+  const WHATSAPP_URL = 'https://wa.me/5571981148422?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento.';
 
   const locations: LocationData[] = [
     {
@@ -70,33 +71,38 @@ const ContactSection: React.FC = () => {
       phones: ["(98) 3227-1169", "(98) 98214-4496", "(98) 99991-0753"],
       emails: ["schalcher@terra.com.br"],
       isPartner: true
-    }
+    },
   ];
 
   const currentLoc = locations.find(loc => loc.name === selectedLocation) || locations[0];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSent(true);
-    setTimeout(() => setFormSent(false), 5000);
+    const formEl = e.currentTarget as HTMLFormElement;
+    const name = (formEl.querySelector('input[type="text"]') as HTMLInputElement)?.value || '';
+    const company = (formEl.querySelectorAll('input[type="text"]')[1] as HTMLInputElement)?.value || '';
+    const product = (formEl.querySelector('select') as HTMLSelectElement)?.value || '';
+    const detail = (formEl.querySelector('textarea') as HTMLTextAreaElement)?.value || '';
+    const msg = encodeURIComponent(`Olá, sou ${name} da empresa ${company}. Tenho interesse em: ${product}. Detalhes: ${detail}`);
+    window.open(`https://wa.me/5571981148422?text=${msg}`, '_blank');
   };
 
   return (
-    <section id="contato" className="py-20 md:py-28 bg-slate-900 text-white relative">
+    <section id="contato" className="py-20 md:py-28 bg-slate-50 text-slate-800 relative">
       <div className="container mx-auto px-4">
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-          <div className="inline-flex items-center space-x-2 bg-postes-red/20 border border-postes-red/30 text-postes-red-light px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center space-x-2 bg-[#FF2E17]/10 border border-[#FF2E17]/20 text-[#FF2E17] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
             <Building2 className="w-3.5 h-3.5" />
             <span>Canais de Atendimento e Redes de Vendas</span>
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-extrabold font-heading tracking-tight">
-            Fale com Nossas <span className="text-postes-red">Unidades & Filiais</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold font-heading tracking-tight text-slate-900">
+            Fale com Nossas <span className="text-[#FF2E17]">Unidades & Filiais</span>
           </h2>
 
-          <p className="text-slate-300 text-base md:text-lg leading-relaxed">
+          <p className="text-slate-500 text-base leading-relaxed">
             Localize a fábrica ou representante mais próximo para cotações técnicas e atendimento a concessionárias e construtoras.
           </p>
         </div>
@@ -109,8 +115,8 @@ const ContactSection: React.FC = () => {
               onClick={() => setSelectedLocation(loc.name)}
               className={`px-4 py-2 rounded-xl text-xs font-heading font-bold transition-all ${
                 selectedLocation === loc.name
-                  ? "bg-postes-red text-white shadow-lg shadow-postes-red/30 scale-105"
-                  : "bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700"
+                  ? "bg-[#FF2E17] text-white shadow-lg scale-105"
+                  : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200"
               }`}
             >
               {loc.name}
@@ -121,34 +127,34 @@ const ContactSection: React.FC = () => {
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           
           {/* Location Info Box */}
-          <div className="lg:col-span-6 bg-slate-800/90 border border-slate-700 rounded-3xl p-6 md:p-8 space-y-6 shadow-xl backdrop-blur-md">
+          <div className="lg:col-span-6 bg-white border border-slate-200 rounded-3xl p-6 md:p-8 space-y-6 shadow-sm">
             <div>
-              <span className="text-[11px] font-extrabold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-amber-600 bg-amber-50 px-2.5 py-1 rounded border border-amber-100">
                 {currentLoc.type}
               </span>
-              <h3 className="text-2xl font-bold font-heading text-white mt-2">
+              <h3 className="text-2xl font-bold font-heading text-slate-900 mt-2">
                 {currentLoc.name}
               </h3>
-              <p className="text-slate-300 text-xs mt-1 flex items-center">
-                <MapPin className="w-3.5 h-3.5 text-postes-red mr-1.5 flex-shrink-0" />
+              <p className="text-slate-500 text-xs mt-1 flex items-center">
+                <MapPin className="w-3.5 h-3.5 text-[#FF2E17] mr-1.5 flex-shrink-0" />
                 {currentLoc.address}
               </p>
             </div>
 
-            <hr className="border-slate-700" />
+            <hr className="border-slate-200" />
 
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <div className="bg-postes-red/10 p-2.5 rounded-xl text-postes-red flex-shrink-0">
+                <div className="bg-[#FF2E17]/10 p-2.5 rounded-xl text-[#FF2E17] flex-shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="font-bold text-xs text-slate-400 uppercase tracking-wider">Telefones de Contato</h4>
                   {currentLoc.phones.map((phone, i) => (
-                    <p key={i} className="text-sm font-semibold text-white mt-0.5">{phone}</p>
+                    <p key={i} className="text-sm font-semibold text-slate-900 mt-0.5">{phone}</p>
                   ))}
                   {currentLoc.whatsapp && (
-                    <p className="text-xs text-emerald-400 font-bold mt-1">
+                    <p className="text-xs text-emerald-600 font-bold mt-1">
                       WhatsApp Comercial: {currentLoc.whatsapp}
                     </p>
                   )}
@@ -156,17 +162,17 @@ const ContactSection: React.FC = () => {
               </div>
 
               <div className="flex items-start space-x-3">
-                <div className="bg-postes-red/10 p-2.5 rounded-xl text-postes-red flex-shrink-0">
+                <div className="bg-[#FF2E17]/10 p-2.5 rounded-xl text-[#FF2E17] flex-shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="font-bold text-xs text-slate-400 uppercase tracking-wider">E-mail Departamental</h4>
                   {currentLoc.emails.map((email, i) => (
-                    <p key={i} className="text-sm font-semibold text-white mt-0.5">{email}</p>
+                    <p key={i} className="text-sm font-semibold text-slate-900 mt-0.5">{email}</p>
                   ))}
                   {currentLoc.website && (
-                    <p className="text-xs text-slate-300 mt-1">
-                      Website: <a href={`https://${currentLoc.website}`} target="_blank" rel="noreferrer" className="text-postes-red underline">{currentLoc.website}</a>
+                    <p className="text-xs text-slate-500 mt-1">
+                      Website: <a href={`https://${currentLoc.website}`} target="_blank" rel="noreferrer" className="text-[#FF2E17] underline">{currentLoc.website}</a>
                     </p>
                   )}
                 </div>
@@ -200,16 +206,7 @@ const ContactSection: React.FC = () => {
               </p>
             </div>
 
-            {formSent ? (
-              <div className="bg-emerald-50 border border-emerald-200 text-emerald-900 p-6 rounded-2xl text-center space-y-3">
-                <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
-                <h4 className="font-bold text-lg font-heading">Mensagem Enviada com Sucesso!</h4>
-                <p className="text-xs text-slate-600">
-                  Nossa equipe de vendas entrará em contato em breve através do telefone/e-mail informado.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleWhatsApp} className="space-y-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Nome Completo</label>
@@ -276,13 +273,12 @@ const ContactSection: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-postes-red hover:bg-postes-red-dark text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center space-x-2 text-sm uppercase tracking-wider"
+                  className="w-full bg-[#FF2E17] hover:bg-[#d42512] text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center space-x-2 text-sm uppercase tracking-wider"
                 >
-                  <Send className="w-4 h-4" />
-                  <span>Enviar Solicitação de Orçamento</span>
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Falar com Vendas no WhatsApp</span>
                 </button>
               </form>
-            )}
           </div>
 
         </div>

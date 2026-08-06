@@ -1,12 +1,14 @@
 import React from 'react';
-import { ShieldCheck, ChevronRight, Award, Zap, Factory, CheckCircle2, ArrowDown } from 'lucide-react';
+import { ChevronRight, Award, Zap, CheckCircle2, MessageCircle } from 'lucide-react';
+
+const WHATSAPP_URL = 'https://wa.me/5571981148422?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20de%20produtos.';
 
 const Hero: React.FC = () => {
   return (
-    <section id="hero" className="relative pt-32 lg:pt-40 pb-20 md:pb-28 overflow-hidden bg-slate-900 text-white dark-industrial-bg">
-      {/* Dynamic background glow effects */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 bg-postes-red/20 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+    <section id="hero" className="relative pt-32 lg:pt-40 pb-20 md:pb-28 overflow-hidden bg-[#111111] text-white">
+      {/* Brand glow effects */}
+      <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#FF2E17]/15 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#FF2E17]/8 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
@@ -37,19 +39,22 @@ const Hero: React.FC = () => {
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
-                href="#produtos"
-                className="bg-postes-red hover:bg-postes-red-dark text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-glow-red transition-all flex items-center space-x-3 text-base group"
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#FF2E17] hover:bg-[#d42512] text-white font-semibold px-8 py-4 rounded-xl shadow-lg transition-all flex items-center space-x-3 text-base group"
               >
-                <span>Conheça o Catálogo</span>
+                <MessageCircle className="w-5 h-5" />
+                <span>Solicitar Orçamento</span>
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
 
               <a
-                href="#qualidade"
-                className="bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-7 py-4 rounded-xl backdrop-blur-md transition-all flex items-center space-x-2.5 text-base"
+                href="#produtos"
+                className="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-7 py-4 rounded-xl backdrop-blur-md transition-all flex items-center space-x-2.5 text-base"
               >
                 <Award className="w-5 h-5 text-amber-400" />
-                <span>ISO 9001 & Qualidade</span>
+                <span>Ver Catálogo</span>
               </a>
             </div>
 
@@ -111,7 +116,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Stats Counter Section */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 bg-slate-800/70 border border-slate-700/80 backdrop-blur-md rounded-2xl p-6 md:p-8 text-center">
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 text-center">
           <div className="space-y-1">
             <p className="text-3xl md:text-4xl font-extrabold font-heading text-white">1965</p>
             <p className="text-xs md:text-sm text-slate-400 font-medium">Ano de Fundação</p>

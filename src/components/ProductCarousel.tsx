@@ -42,16 +42,6 @@ const ProductCarousel: React.FC = () => {
     },
     {
       id: 2,
-      name: "Poste Circular de Alta Capacidade para Redes Urbanas e Rurais",
-      category: 'postes-subtransmissao',
-      categoryName: "Eletrificação & Subtransmissão",
-      image: "/POSTE CIRCULAR PARA LINHAS DE SUBTRANSMISSÃO 2.jpeg",
-      description: "Estrutura circular cônica pré-moldada ideal para cruzamentos, ancoragem de linhas, iluminação pública pesada e travessias rodoviárias/ferroviárias.",
-      specs: ["Acabamento liso de alta estanqueidade", "Cônica contínua ou seção reduzida (RC)", "Resistente a ambientes agressivos e salinos"],
-      homologated: true
-    },
-    {
-      id: 3,
       name: "Poste Seção Duplo T (DT) para Linhas de Subtransmissão",
       category: 'postes-subtransmissao',
       categoryName: "Eletrificação & Subtransmissão",
@@ -101,16 +91,6 @@ const ProductCarousel: React.FC = () => {
       homologated: true
     },
     {
-      id: 8,
-      name: "Estrutura de Galpão Multipavimento 2",
-      category: 'galpoes',
-      categoryName: "Galpões Pré-Moldados",
-      image: "/ESTRUTURA DE GALPÃO 2.jpeg",
-      description: "Estrutura pesada em colunas de concreto com encaixes estruturais para construções industriais, fábricas e depósitos de grande porte.",
-      specs: ["Cálculo estrutural avançado", "Concreto fck elevado e armadura de aço nervurado", "Garantia estendida de desempenho de engenharia"],
-      homologated: true
-    },
-    {
       id: 9,
       name: "Estrutura de Galpão de Grande Porte 3",
       category: 'galpoes',
@@ -128,16 +108,6 @@ const ProductCarousel: React.FC = () => {
       image: "/ESTRUTURA DE GALPÃO 4.jpeg",
       description: "Pilares com travamento vertical e horizontal para múltiplos pavimentos e grandes mezeninos operacionais.",
       specs: ["Elevada inércia química contra corrosão", "Compatível com fechamento em painéis alveolares ou placas", "Projeto conforme NBR 9062"],
-      homologated: true
-    },
-    {
-      id: 11,
-      name: "Estrutura de Galpão Pré-Fabricado 5",
-      category: 'galpoes',
-      categoryName: "Galpões Pré-Moldados",
-      image: "/ESTRUTURA DE GALPÃO 5.jpeg",
-      description: "Pilares e travamentos pré-moldados para galpões agrícolas, estábulos industriais, hangares e garagens de frotas.",
-      specs: ["Execução rápida e econômica", "Baixa necessidade de manutenção", "Resistência estrutural comprovada"],
       homologated: true
     },
     {
