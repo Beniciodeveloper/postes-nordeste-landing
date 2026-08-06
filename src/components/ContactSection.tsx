@@ -1,157 +1,292 @@
-import { MapPin, Phone, Mail } from 'lucide-react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { MapPin, Phone, Mail, Globe, Send, MessageSquare, Clock, Building2, CheckCircle2 } from 'lucide-react';
 
 type LocationData = {
   name: string;
-  address?: string;
+  type: string;
+  address: string;
   phones: string[];
   emails: string[];
+  whatsapp?: string;
   isPartner?: boolean;
   website?: string;
 };
 
-const ContactSection = () => {
-  const [selectedLocation, setSelectedLocation] = useState<string>("MATRIZ");
-  
+const ContactSection: React.FC = () => {
+  const [selectedLocation, setSelectedLocation] = useState<string>("MATRIZ (ARATU - BA)");
+  const [formSent, setFormSent] = useState(false);
+
   const locations: LocationData[] = [
     {
-      name: "MATRIZ",
+      name: "MATRIZ (ARATU - BA)",
+      type: "Matriz Fabril",
+      address: "Centro Industrial de Aratu (CIA) - Simões Filho / Salvador - BA",
       phones: ["(71) 3413-8422"],
       emails: ["postesnordeste@postesnordeste.com.br", "vendas@postesnordeste.com.br"],
-      address: "Av. Principal, 1234 - Recife, PE",
-    },
-    {
-      name: "SEABRA - BA",
-      phones: ["(75) 3331-3166", "(71) 98115-2698"],
-      emails: ["seabra.ba@postesnordeste.com.br"],
-    },
-    {
-      name: "PARCEIRO ITABUNA - BA",
-      phones: ["(71) 98114-3330", "WhatsApp: (73) 98251-0527"],
-      emails: ["inprenor@inprenor.com.br", "gerencia@inprenor.com.br"],
-      isPartner: true,
-      website: "www.inprenor.com.br",
+      whatsapp: "(71) 98114-8422"
     },
     {
       name: "MORENO - PE",
+      type: "Filial Fabril Pernambuco",
+      address: "Rodovia BR-232, Km 26 - Moreno - PE",
       phones: ["(81) 3073-9050", "(81) 99198-4490"],
-      emails: ["moreno.pe@postesnordeste.com.br", "adm.pe@postesnordeste.com.br", "rh.moreno@postesnordeste.com.br"],
+      emails: ["moreno.pe@postesnordeste.com.br", "adm.pe@postesnordeste.com.br"]
+    },
+    {
+      name: "FORTALEZA - CE",
+      type: "Filial Fabril Ceará",
+      address: "Distrito Industrial - Fortaleza / Maracanaú - CE",
+      phones: ["(85) 3299-1000", "(85) 98114-0000"],
+      emails: ["fortaleza.ce@postesnordeste.com.br"]
+    },
+    {
+      name: "SEABRA - BA",
+      type: "Filial Centro-Oeste Baiano",
+      address: "Rodovia BR-242, Km 380 - Seabra - BA",
+      phones: ["(75) 3331-3166", "(71) 98115-2698"],
+      emails: ["seabra.ba@postesnordeste.com.br"]
+    },
+    {
+      name: "ITABUNA - BA (INPRENOR)",
+      type: "Parceiro Fabril Sul da Bahia",
+      address: "Distrito Industrial - Itabuna - BA",
+      phones: ["(71) 98114-3330"],
+      emails: ["inprenor@inprenor.com.br", "gerencia@inprenor.com.br"],
+      whatsapp: "(73) 98251-0527",
+      isPartner: true,
+      website: "www.inprenor.com.br"
     },
     {
       name: "LAGOA DO PIAUÍ - PI",
+      type: "Unidade Piauí",
+      address: "BR-316, Lagoa do Piauí - PI",
       phones: ["(71) 98114-5671"],
-      emails: ["adm.piaui@postesnordeste.com.br"],
+      emails: ["adm.piaui@postesnordeste.com.br"]
     },
     {
       name: "SÃO LUÍS - MA",
+      type: "Representação Comercial",
+      address: "Schalcher Representações - São Luís - MA",
       phones: ["(98) 3227-1169", "(98) 98214-4496", "(98) 99991-0753"],
       emails: ["schalcher@terra.com.br"],
-      isPartner: true,
-      address: "Representação: Schalcher Representações",
-    },
+      isPartner: true
+    }
   ];
 
-  return (
-    <section id="contato" className="section-padding bg-white py-16">
-      <div className="container mx-auto">
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="animate-on-scroll">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-postes-gray-dark">
-              Entre em <span className="text-postes-red">Contato</span>
-            </h2>
-            <p className="mb-8 text-postes-gray-dark">
-              Encontre-nos em nossa matriz e unidades regionais ou entre em contato 
-              através dos nossos canais de atendimento.
-            </p>
-            
-            {/* Location selector */}
-            <div className="flex flex-wrap gap-2 mb-8">
-              {locations.map((location) => (
-                <button
-                  key={location.name}
-                  onClick={() => setSelectedLocation(location.name)}
-                  className={`py-1 px-3 text-sm rounded-full transition-all ${
-                    selectedLocation === location.name
-                      ? "bg-postes-red text-white"
-                      : "bg-gray-100 text-postes-gray-dark hover:bg-gray-200"
-                  }`}
-                >
-                  {location.name}
-                </button>
-              ))}
-            </div>
-            
-            {/* Selected location details */}
-            {locations.find(loc => loc.name === selectedLocation) && (
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="bg-postes-red/10 p-3 rounded-full mr-4">
-                    <Phone className="w-5 h-5 text-postes-red" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold mb-1 text-postes-gray-dark">Telefone</h3>
-                    {locations.find(loc => loc.name === selectedLocation)?.phones.map((phone, index) => (
-                      <p key={index} className="text-postes-gray-dark">{phone}</p>
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="bg-postes-red/10 p-3 rounded-full mr-4">
-                    <Mail className="w-5 h-5 text-postes-red" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold mb-1 text-postes-gray-dark">Email</h3>
-                    {locations.find(loc => loc.name === selectedLocation)?.emails.map((email, index) => (
-                      <p key={index} className="text-postes-gray-dark">{email}</p>
-                    ))}
-                    {locations.find(loc => loc.name === selectedLocation)?.website && (
-                      <p className="text-postes-gray-dark mt-1">
-                        Site: {locations.find(loc => loc.name === selectedLocation)?.website}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                
-                {locations.find(loc => loc.name === selectedLocation)?.address && (
-                  <div className="flex items-start">
-                    <div className="bg-postes-red/10 p-3 rounded-full mr-4">
-                      <MapPin className="w-5 h-5 text-postes-red" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold mb-1 text-postes-gray-dark">
-                        {locations.find(loc => loc.name === selectedLocation)?.isPartner ? "Endereço" : "Matriz"}
-                      </h3>
-                      <p className="text-postes-gray-dark">
-                        {locations.find(loc => loc.name === selectedLocation)?.address}
-                      </p>
-                    </div>
-                  </div>
-                )}
+  const currentLoc = locations.find(loc => loc.name === selectedLocation) || locations[0];
 
-                {locations.find(loc => loc.name === selectedLocation)?.isPartner && (
-                  <div className="mt-2 text-xs bg-gray-100 p-2 rounded">
-                    <p className="text-postes-gray-dark">* Parceiro/Representante Autorizado</p>
-                  </div>
-                )}
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormSent(true);
+    setTimeout(() => setFormSent(false), 5000);
+  };
+
+  return (
+    <section id="contato" className="py-20 md:py-28 bg-slate-900 text-white relative">
+      <div className="container mx-auto px-4">
+        
+        {/* Section Header */}
+        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
+          <div className="inline-flex items-center space-x-2 bg-postes-red/20 border border-postes-red/30 text-postes-red-light px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+            <Building2 className="w-3.5 h-3.5" />
+            <span>Canais de Atendimento e Redes de Vendas</span>
+          </div>
+
+          <h2 className="text-3xl md:text-5xl font-extrabold font-heading tracking-tight">
+            Fale com Nossas <span className="text-postes-red">Unidades & Filiais</span>
+          </h2>
+
+          <p className="text-slate-300 text-base md:text-lg leading-relaxed">
+            Localize a fábrica ou representante mais próximo para cotações técnicas e atendimento a concessionárias e construtoras.
+          </p>
+        </div>
+
+        {/* Location Selector Pill Bar */}
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
+          {locations.map((loc) => (
+            <button
+              key={loc.name}
+              onClick={() => setSelectedLocation(loc.name)}
+              className={`px-4 py-2 rounded-xl text-xs font-heading font-bold transition-all ${
+                selectedLocation === loc.name
+                  ? "bg-postes-red text-white shadow-lg shadow-postes-red/30 scale-105"
+                  : "bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700"
+              }`}
+            >
+              {loc.name}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          
+          {/* Location Info Box */}
+          <div className="lg:col-span-6 bg-slate-800/90 border border-slate-700 rounded-3xl p-6 md:p-8 space-y-6 shadow-xl backdrop-blur-md">
+            <div>
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded">
+                {currentLoc.type}
+              </span>
+              <h3 className="text-2xl font-bold font-heading text-white mt-2">
+                {currentLoc.name}
+              </h3>
+              <p className="text-slate-300 text-xs mt-1 flex items-center">
+                <MapPin className="w-3.5 h-3.5 text-postes-red mr-1.5 flex-shrink-0" />
+                {currentLoc.address}
+              </p>
+            </div>
+
+            <hr className="border-slate-700" />
+
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <div className="bg-postes-red/10 p-2.5 rounded-xl text-postes-red flex-shrink-0">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-xs text-slate-400 uppercase tracking-wider">Telefones de Contato</h4>
+                  {currentLoc.phones.map((phone, i) => (
+                    <p key={i} className="text-sm font-semibold text-white mt-0.5">{phone}</p>
+                  ))}
+                  {currentLoc.whatsapp && (
+                    <p className="text-xs text-emerald-400 font-bold mt-1">
+                      WhatsApp Comercial: {currentLoc.whatsapp}
+                    </p>
+                  )}
+                </div>
               </div>
+
+              <div className="flex items-start space-x-3">
+                <div className="bg-postes-red/10 p-2.5 rounded-xl text-postes-red flex-shrink-0">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-xs text-slate-400 uppercase tracking-wider">E-mail Departamental</h4>
+                  {currentLoc.emails.map((email, i) => (
+                    <p key={i} className="text-sm font-semibold text-white mt-0.5">{email}</p>
+                  ))}
+                  {currentLoc.website && (
+                    <p className="text-xs text-slate-300 mt-1">
+                      Website: <a href={`https://${currentLoc.website}`} target="_blank" rel="noreferrer" className="text-postes-red underline">{currentLoc.website}</a>
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Embedded Google Map iframe */}
+            <div className="rounded-2xl overflow-hidden border border-slate-700 h-64 shadow-md">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7796.657163149982!2d-38.45236454214418!3d-12.807340368284007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x71614a7f5fc6339%3A0x62db8f08bfc3df54!2sPostes%20Nordeste!5e0!3m2!1spt-BR!2sbr!4v1714927685103!5m2!1spt-BR!2sbr"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                title={`Mapa ${currentLoc.name}`}
+              ></iframe>
+            </div>
+
+          </div>
+
+          {/* Direct Quote / Inquiry Form */}
+          <div className="lg:col-span-6 bg-white text-slate-900 rounded-3xl p-6 md:p-8 shadow-2xl border border-slate-200">
+            <div className="mb-6 space-y-1">
+              <span className="text-xs font-bold uppercase tracking-wider text-postes-red">Atendimento Comercial</span>
+              <h3 className="text-2xl font-bold font-heading text-slate-900">
+                Solicite uma Cotação para a sua Empresa
+              </h3>
+              <p className="text-slate-600 text-xs">
+                Preencha os dados e receba proposta de nossa equipe técnica e comercial.
+              </p>
+            </div>
+
+            {formSent ? (
+              <div className="bg-emerald-50 border border-emerald-200 text-emerald-900 p-6 rounded-2xl text-center space-y-3">
+                <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
+                <h4 className="font-bold text-lg font-heading">Mensagem Enviada com Sucesso!</h4>
+                <p className="text-xs text-slate-600">
+                  Nossa equipe de vendas entrará em contato em breve através do telefone/e-mail informado.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Nome Completo</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Seu nome"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-postes-red"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Razão Social / Empresa</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Nome da empresa"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-postes-red"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">E-mail Corporativo</label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="email@empresa.com.br"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-postes-red"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Telefone / WhatsApp</label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="(00) 00000-0000"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-postes-red"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Linha de Produto ou Projeto</label>
+                  <select className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-postes-red">
+                    <option>Postes DT e Circulares para Eletrificação</option>
+                    <option>Estruturas e Pórticos de Subestações</option>
+                    <option>Galpões Pré-Moldados em Concreto</option>
+                    <option>Paredes Corta-Fogo e Defensas Viárias</option>
+                    <option>Produtos Rurais (Mourões, Cochos, Currais)</option>
+                    <option>Outros Pré-Moldados Customizados</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Detalhamento do Pedido / Cidade da Obra</label>
+                  <textarea
+                    rows={4}
+                    required
+                    placeholder="Descreva a quantidade, especificações, prazos ou localização da obra..."
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-postes-red"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-postes-red hover:bg-postes-red-dark text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center space-x-2 text-sm uppercase tracking-wider"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>Enviar Solicitação de Orçamento</span>
+                </button>
+              </form>
             )}
           </div>
-          
-          <div className="animate-on-scroll h-[300px] md:h-[500px] flex justify-center items-center w-full">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7796.657163149982!2d-38.45236454214418!3d-12.807340368284007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x71614a7f5fc6339%3A0x62db8f08bfc3df54!2sPostes%20Nordeste!5e0!3m2!1spt-BR!2sbr!4v1714927685103!5m2!1spt-BR!2sbr"
-              width="100%"
-              height="100%"
-              style={{ border: 0, borderRadius: '8px', maxWidth: '100%', display: 'block' }}
-              allowFullScreen={false}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Localização Postes Nordeste"
-              className="shadow-md w-full max-w-full h-full mx-auto"
-            ></iframe>
-          </div>
+
         </div>
+
       </div>
     </section>
   );

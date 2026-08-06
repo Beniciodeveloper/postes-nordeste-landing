@@ -1,104 +1,76 @@
-import { Factory, Building, Zap, Power, Lightbulb, Warehouse, Anchor, Home, Blocks, Wrench } from 'lucide-react';
+import React from 'react';
+import { Zap, Factory, Warehouse, ShieldAlert, CheckCircle2, FileDown } from 'lucide-react';
 import ProductCarousel from './ProductCarousel';
 
-const Products = () => {
-  const products = [
-    {
-      icon: <Zap className="w-5 h-5 text-postes-red" />,
-      name: "Postes DT e circulares",
-      category: "Eletrificação"
-    },
-    {
-      icon: <Power className="w-5 h-5 text-postes-red" />,
-      name: "Estruturas para redes de distribuição e subestações",
-      category: "Eletrificação"
-    },
-    {
-      icon: <Factory className="w-5 h-5 text-postes-red" />,
-      name: "Cruzetas, anéis, vigas e colunas",
-      category: "Eletrificação"
-    },
-    {
-      icon: <Lightbulb className="w-5 h-5 text-postes-red" />,
-      name: "Redes de distribuição aérea e subterrânea",
-      category: "Eletrificação"
-    },
-    {
-      icon: <Power className="w-5 h-5 text-postes-red" />,
-      name: "Estruturas para iluminação pública",
-      category: "Eletrificação"
-    },
-    {
-      icon: <Warehouse className="w-5 h-5 text-postes-red" />,
-      name: "Galpões e estruturas industriais",
-      category: "Pré-moldados"
-    },
-    {
-      icon: <Anchor className="w-5 h-5 text-postes-red" />,
-      name: "Estacas e mourões",
-      category: "Pré-moldados"
-    },
-    {
-      icon: <Home className="w-5 h-5 text-postes-red" />,
-      name: "Estábulos, abrigos e currais",
-      category: "Pré-moldados"
-    },
-    {
-      icon: <Blocks className="w-5 h-5 text-postes-red" />,
-      name: "Blocos estruturais",
-      category: "Pré-moldados"
-    },
-    {
-      icon: <Wrench className="w-5 h-5 text-postes-red" />,
-      name: "Soluções customizadas para construção civil",
-      category: "Pré-moldados"
-    }
-  ];
-
+const Products: React.FC = () => {
   return (
-    <section id="produtos" className="section-padding bg-postes-gray-light">
-      <div className="container mx-auto">
-        <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-postes-gray-dark">
-            Nossos <span className="text-postes-red">Produtos</span>
+    <section id="produtos" className="py-20 md:py-28 bg-slate-50 relative">
+      <div className="container mx-auto px-4">
+        
+        {/* Section Title */}
+        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
+          <div className="inline-flex items-center space-x-2 bg-postes-red/10 border border-postes-red/20 text-postes-red px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+            <Zap className="w-3.5 h-3.5" />
+            <span>Portfólio Completo de Soluções</span>
+          </div>
+
+          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 font-heading tracking-tight">
+            Catálogo de <span className="text-postes-red">Produtos e Estruturas</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-postes-gray-dark">
-            Oferecemos uma linha completa de soluções em concreto pré-moldado para os setores
-            de energia e construção civil, com produtos que atendem às mais rigorosas especificações técnicas.
+
+          <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+            Desenvolvidos em conformidade com as normas ABNT/NBR e homologados nas principais concessionárias de energia do Brasil.
           </p>
         </div>
-        
-        <div className="bg-white p-8 rounded shadow-md animate-on-scroll mb-16">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-postes-red">Nossa Linha de Produtos</h3>
+
+        {/* Product Grid Summary Cards */}
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-postes-red/10 w-12 h-12 rounded-xl flex items-center justify-center text-postes-red mb-4">
+              <Zap className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-bold font-heading text-slate-900 mb-2">Setor de Eletrificação</h3>
+            <p className="text-slate-600 text-sm mb-4 leading-relaxed">
+              Postes DT, circulares (tipo R e RC), cruzetas, anéis, vigas e pórticos para redes de distribuição, linhas de subtransmissão e subestações.
+            </p>
+            <ul className="space-y-1.5 text-xs text-slate-700">
+              <li className="flex items-center"><CheckCircle2 className="w-3.5 h-3.5 text-postes-red mr-2" /> Redes Urbanas e Rurais</li>
+              <li className="flex items-center"><CheckCircle2 className="w-3.5 h-3.5 text-postes-red mr-2" /> Subestações de Alta Tensão</li>
+            </ul>
           </div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              {products.slice(0, 5).map((product, index) => (
-                <div key={index} className="flex items-start">
-                  <div className="bg-postes-red/10 p-2 rounded-full mr-4 mt-1">
-                    {product.icon}
-                  </div>
-                  <span className="text-postes-gray-dark">{product.name}</span>
-                </div>
-              ))}
+
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-postes-navy/10 w-12 h-12 rounded-xl flex items-center justify-center text-postes-navy mb-4">
+              <Warehouse className="w-6 h-6" />
             </div>
-            <div className="space-y-6">
-              {products.slice(5).map((product, index) => (
-                <div key={index} className="flex items-start">
-                  <div className="bg-postes-red/10 p-2 rounded-full mr-4 mt-1">
-                    {product.icon}
-                  </div>
-                  <span className="text-postes-gray-dark">{product.name}</span>
-                </div>
-              ))}
+            <h3 className="text-xl font-bold font-heading text-slate-900 mb-2">Galpões Pré-Moldados</h3>
+            <p className="text-slate-600 text-sm mb-4 leading-relaxed">
+              Uma das empresas mais atuantes do mercado em estruturas de concreto pré-fabricado para galpões industriais, comerciais e agronegócio.
+            </p>
+            <ul className="space-y-1.5 text-xs text-slate-700">
+              <li className="flex items-center"><CheckCircle2 className="w-3.5 h-3.5 text-postes-red mr-2" /> Vãos livres até 40 metros</li>
+              <li className="flex items-center"><CheckCircle2 className="w-3.5 h-3.5 text-postes-red mr-2" /> Execução ágil e limpa</li>
+            </ul>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-amber-500/10 w-12 h-12 rounded-xl flex items-center justify-center text-amber-600 mb-4">
+              <ShieldAlert className="w-6 h-6" />
             </div>
+            <h3 className="text-xl font-bold font-heading text-slate-900 mb-2">Defensas & Paredes Corta-Fogo</h3>
+            <p className="text-slate-600 text-sm mb-4 leading-relaxed">
+              Paredes de contenção térmica para transformadores de força em subestações e defensas viárias do tipo New Jersey para rodovias.
+            </p>
+            <ul className="space-y-1.5 text-xs text-slate-700">
+              <li className="flex items-center"><CheckCircle2 className="w-3.5 h-3.5 text-postes-red mr-2" /> Isolamento térmico de segurança</li>
+              <li className="flex items-center"><CheckCircle2 className="w-3.5 h-3.5 text-postes-red mr-2" /> Padrão DNIT / Bombeiros</li>
+            </ul>
           </div>
         </div>
-        
-        {/* Product Carousel */}
+
+        {/* Dynamic Interactive Product Carousel */}
         <ProductCarousel />
+
       </div>
     </section>
   );

@@ -1,48 +1,50 @@
+import React, { useState } from 'react';
+import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Products from '@/components/Products';
+import IsoQualitySection from '@/components/IsoQualitySection';
+import GovernancePolicies from '@/components/GovernancePolicies';
+import FinancingMarket from '@/components/FinancingMarket';
 import Differentials from '@/components/Differentials';
 import Clients from '@/components/Clients';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
-import Header from '@/components/Header';
-import { useEffect } from 'react';
+import CookieBanner from '@/components/CookieBanner';
+import WebmailModal from '@/components/WebmailModal';
 
-const Index = () => {
-  // Enhanced scroll animation observer with more subtle fade-in effect
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('opacity-100', 'translate-y-0');
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -100px 0px' }
-    );
-
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    elements.forEach((element) => {
-      element.classList.add('opacity-0', 'translate-y-8', 'transition-all', 'duration-700');
-      observer.observe(element);
-    });
-
-    return () => {
-      elements.forEach((element) => observer.unobserve(element));
-    };
-  }, []);
+const Index: React.FC = () => {
+  const [webmailModalOpen, setWebmailModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen">
-      <Header />
-      <Hero />
-      <About />
-      <Products />
-      <Differentials />
-      <Clients />
-      <ContactSection />
-      <Footer />
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-postes-red selection:text-white">
+      {/* Navigation Header */}
+      <Header onOpenWebmail={() => setWebmailModalOpen(true)} />
+
+      {/* Main Content Sections */}
+      <main>
+        <Hero />
+        <About />
+        <Products />
+        <IsoQualitySection />
+        <GovernancePolicies />
+        <FinancingMarket />
+        <Differentials />
+        <Clients />
+        <ContactSection />
+      </main>
+
+      {/* Institutional Footer */}
+      <Footer onOpenWebmail={() => setWebmailModalOpen(true)} />
+
+      {/* LGPD Cookie Consent Banner */}
+      <CookieBanner />
+
+      {/* Webmail Redirection Modal */}
+      <WebmailModal 
+        isOpen={webmailModalOpen} 
+        onClose={() => setWebmailModalOpen(false)} 
+      />
     </div>
   );
 };

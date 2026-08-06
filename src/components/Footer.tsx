@@ -1,65 +1,118 @@
+import React from 'react';
+import { Mail, Phone, MapPin, Award, ExternalLink, ShieldCheck, Lock, ChevronRight } from 'lucide-react';
 
-const Footer = () => {
+interface FooterProps {
+  onOpenWebmail?: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onOpenWebmail }) => {
   return (
-    <footer className="bg-postes-gray-dark text-white py-12">
+    <footer className="bg-slate-950 text-slate-400 border-t border-slate-800 pt-16 pb-8 text-sm">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8">
-          <div>
-            <h3 className="text-xl mb-4 font-bold">
-              <span className="text-postes-red font-black">POSTES</span> NORDESTE S.A.
-            </h3>
-            <p className="text-sm text-gray-300 mb-4">
-              Especialistas em artefatos de concreto pré-moldado para os setores de eletrificação e construção civil desde 1965.
+        
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+          
+          {/* Company Brand Column */}
+          <div className="lg:col-span-4 space-y-5">
+            <a href="#" className="inline-block">
+              <img 
+                src="/Logo_PostesNordeste_logo.png" 
+                alt="Logo Postes Nordeste" 
+                className="h-12 w-auto object-contain brightness-0 invert"
+              />
+            </a>
+
+            <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
+              Fundada em 16 de novembro de 1965. Liderança e referência técnica na fabricação de postes de concreto, estruturas para subestações, galpões pré-moldados e soluções rurais.
             </p>
-          </div>
-          
-          <div>
-            <h3 className="text-lg mb-4 font-bold">Unidades</h3>
-            <ul className="space-y-2">
-              <li className="text-sm text-gray-300">Recife - PE (Matriz)</li>
-              <li className="text-sm text-gray-300">Fortaleza - CE</li>
-              <li className="text-sm text-gray-300">Salvador - BA</li>
-              <li className="text-sm text-gray-300">Maceió - AL</li>
-              <li className="text-sm text-gray-300">Natal - RN</li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-lg mb-4 font-bold">Redes Sociais</h3>
-            <div className="flex space-x-4">
-              <a href="#" className="text-postes-red hover:text-white transition-colors">
-                LinkedIn
-              </a>
-              <a href="#" className="text-postes-red hover:text-white transition-colors">
-                Facebook
-              </a>
-              <a href="#" className="text-postes-red hover:text-white transition-colors">
-                Instagram
-              </a>
+
+            <div className="flex items-center space-x-3 text-xs bg-slate-900 border border-slate-800 p-3 rounded-xl w-fit">
+              <Award className="w-5 h-5 text-amber-400 flex-shrink-0" />
+              <div>
+                <p className="font-bold text-white">Certificação ISO 9001</p>
+                <p className="text-[11px] text-slate-400">Sistema de Gestão da Qualidade</p>
+              </div>
             </div>
           </div>
+
+          {/* Quick Links Column */}
+          <div className="lg:col-span-2 space-y-4">
+            <h4 className="font-bold text-white font-heading text-sm uppercase tracking-wider">
+              Navegação
+            </h4>
+            <ul className="space-y-2.5 text-xs">
+              <li><a href="#sobre" className="hover:text-postes-red transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-postes-red" /> Nossa História</a></li>
+              <li><a href="#produtos" className="hover:text-postes-red transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-postes-red" /> Catálogo de Produtos</a></li>
+              <li><a href="#qualidade" className="hover:text-postes-red transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-postes-red" /> Qualidade ISO 9001</a></li>
+              <li><a href="#financiamento" className="hover:text-postes-red transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-postes-red" /> Financiamento BNDES</a></li>
+              <li><a href="#clientes" className="hover:text-postes-red transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-postes-red" /> Concessionárias</a></li>
+              <li><a href="#contato" className="hover:text-postes-red transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-postes-red" /> Nossas Unidades</a></li>
+            </ul>
+          </div>
+
+          {/* Governance & Policies Column */}
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="font-bold text-white font-heading text-sm uppercase tracking-wider flex items-center gap-1.5">
+              <Lock className="w-4 h-4 text-postes-red" />
+              <span>Governança & LGPD</span>
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li><a href="#governanca" className="hover:text-white transition-colors">Código de Ética e Conduta</a></li>
+              <li><a href="#governanca" className="hover:text-white transition-colors">Política Contra Corrupção</a></li>
+              <li><a href="#governanca" className="hover:text-white transition-colors">Política de Proteção de Dados (LGPD)</a></li>
+              <li><a href="#governanca" className="hover:text-white transition-colors">Política de Mudanças Climáticas</a></li>
+              <li><a href="#governanca" className="hover:text-white transition-colors">Combate ao Assédio</a></li>
+              <li><a href="#governanca" className="hover:text-white transition-colors">Compras Sustentáveis</a></li>
+            </ul>
+          </div>
+
+          {/* Webmail & Access Column */}
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="font-bold text-white font-heading text-sm uppercase tracking-wider">
+              Acesso Corporativo
+            </h4>
+            
+            <p className="text-xs text-slate-400">
+              Portal de e-mail e sistemas internos para colaboradores Postes Nordeste.
+            </p>
+
+            <a
+              href="https://webmail.postesnordeste.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => {
+                if (onOpenWebmail) {
+                  e.preventDefault();
+                  onOpenWebmail();
+                }
+              }}
+              className="inline-flex items-center space-x-2 bg-slate-900 hover:bg-postes-red text-white px-4 py-2.5 rounded-xl border border-slate-800 hover:border-postes-red transition-all text-xs font-semibold"
+            >
+              <Mail className="w-4 h-4 text-postes-red group-hover:text-white" />
+              <span>Acessar Webmail Corporativo</span>
+              <ExternalLink className="w-3.5 h-3.5 ml-1 opacity-70" />
+            </a>
+
+            <div className="pt-2 text-xs text-slate-400 space-y-1">
+              <p className="font-semibold text-slate-300">Atendimento Matriz Salvador (CIA):</p>
+              <p>Segunda a Sexta, das 07:30 às 17:30</p>
+              <p className="text-slate-300 font-medium">(71) 3413-8422</p>
+            </div>
+          </div>
+
         </div>
-        
-        <div className="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-400 mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} Postes Nordeste S.A. Todos os direitos reservados.
-          </p>
-          
-          <div className="flex flex-wrap space-x-4">
-            <a href="#" className="text-sm text-gray-400 hover:text-postes-red transition-colors">
-              Política de privacidade
-            </a>
-            <a href="#" className="text-sm text-gray-400 hover:text-postes-red transition-colors">
-              Termos de uso
-            </a>
-            <a href="#" className="text-sm text-gray-400 hover:text-postes-red transition-colors">
-              Cookies
-            </a>
-            <a href="#" className="text-sm text-gray-400 hover:text-postes-red transition-colors">
-              LGPD
-            </a>
+
+        {/* Copyright Footer Sub-bar */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <p>© {new Date().getFullYear()} Postes Nordeste S.A. Todos os direitos reservados. CNPJ Matriz Salvador / CIA.</p>
+          <div className="flex items-center space-x-6">
+            <a href="#governanca" className="hover:text-white transition-colors">Termos de Uso</a>
+            <a href="#governanca" className="hover:text-white transition-colors">Política de Privacidade</a>
+            <a href="#governanca" className="hover:text-white transition-colors">Cookies</a>
           </div>
         </div>
+
       </div>
     </footer>
   );
