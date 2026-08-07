@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Award, ExternalLink, ShieldCheck, Lock, ChevronRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Award, ExternalLink, ShieldCheck, Lock, ChevronRight, Instagram } from 'lucide-react';
 
 interface FooterProps {
   onOpenWebmail?: () => void;
@@ -27,12 +27,25 @@ const Footer: React.FC<FooterProps> = ({ onOpenWebmail }) => {
               Fundada em 16 de novembro de 1965. Liderança e referência técnica na fabricação de postes de concreto, estruturas para subestações, galpões pré-moldados e soluções rurais.
             </p>
 
-            <div className="flex items-center space-x-3 text-xs bg-slate-900 border border-slate-800 p-3 rounded-xl w-fit">
-              <Award className="w-5 h-5 text-amber-400 flex-shrink-0" />
-              <div>
-                <p className="font-bold text-white">Certificação ISO 9001</p>
-                <p className="text-[11px] text-slate-400">Sistema de Gestão da Qualidade</p>
+            <div className="flex items-center gap-4">
+              <div className="flex items-center space-x-3 text-xs bg-slate-900 border border-slate-800 p-3 rounded-xl w-fit">
+                <Award className="w-5 h-5 text-amber-400 flex-shrink-0" />
+                <div>
+                  <p className="font-bold text-white">Certificação ISO 9001</p>
+                  <p className="text-[11px] text-slate-400">Sistema de Gestão da Qualidade</p>
+                </div>
               </div>
+
+              <a
+                href="https://www.instagram.com/postesnordeste/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-slate-900 hover:bg-[#E1306C] text-slate-300 hover:text-white border border-slate-800 px-3.5 py-3 rounded-xl transition-all text-xs font-semibold"
+                title="Siga a Postes Nordeste no Instagram"
+              >
+                <Instagram className="w-5 h-5 text-[#E1306C] group-hover:text-white" />
+                <span className="hidden sm:inline">Instagram</span>
+              </a>
             </div>
           </div>
 

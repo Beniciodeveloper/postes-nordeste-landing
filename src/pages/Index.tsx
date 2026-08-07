@@ -4,9 +4,7 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Products from '@/components/Products';
 import IsoQualitySection from '@/components/IsoQualitySection';
-import GovernancePolicies from '@/components/GovernancePolicies';
 import FinancingMarket from '@/components/FinancingMarket';
-import Differentials from '@/components/Differentials';
 import Clients from '@/components/Clients';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
@@ -28,7 +26,6 @@ const Index: React.FC = () => {
         <Products />
         <IsoQualitySection />
         <FinancingMarket />
-        <Differentials />
         <Clients />
         <ContactSection />
       </main>
