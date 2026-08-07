@@ -3,11 +3,11 @@ import { MapPin, Factory, Building } from 'lucide-react';
 
 const historyMilestones = [
   { year: "1965", title: "Fundação em Salvador", text: "Criada sob liderança da INDARCO, com fábrica piloto em Valéria, Bahia." },
-  { year: "1967", title: "CIA – Aratu", text: "Transferência para o Centro Industrial de Aratu, com parque fabril de grande escala." },
-  { year: "1968", title: "Filial Moreno – PE", text: "Expansão para Pernambuco, modernizando redes elétricas do interior nordestino." },
+  { year: "1967", title: "CIA Aratu", text: "Transferência para o Centro Industrial de Aratu, com parque fabril de grande escala." },
+  { year: "1968", title: "Filial Moreno PE", text: "Expansão para Pernambuco, modernizando redes elétricas do interior nordestino." },
   { year: "1969", title: "Novo Controle Acionário", text: "A Comercial Construtora Vera Cruz Ltda. assume e amplia os investimentos." },
-  { year: "1979", title: "Itabuna & Seabra – BA", text: "Abertura de duas unidades para o Sul e Centro-Oeste da Bahia." },
-  { year: "1984", title: "Filial Fortaleza – CE", text: "Polo estratégico para atender ao septentrião nordestino e o Norte do país." },
+  { year: "1979", title: "Itabuna & Seabra BA", text: "Abertura de duas unidades para o Sul e Centro-Oeste da Bahia." },
+  { year: "1984", title: "Filial Fortaleza CE", text: "Polo estratégico para atender ao septentrião nordestino e o Norte do país." },
   { year: "Hoje", title: "Liderança Nacional", text: "Presença em todo o Nordeste, galpões, subestações, setor rural e energia." },
 ];
 
@@ -28,7 +28,7 @@ const About: React.FC = () => {
           </h2>
 
           <p className="text-slate-500 text-base leading-relaxed">
-            Uma trajetória construída com inovação contínua e padrão rigoroso de engenharia — impulsionando a eletrificação e a construção no Norte e Nordeste do Brasil.
+            Uma trajetória construída com inovação contínua e padrão rigoroso de engenharia, impulsionando a eletrificação e a construção no Norte e Nordeste do Brasil.
           </p>
         </div>
 
@@ -39,7 +39,7 @@ const About: React.FC = () => {
               A <strong className="text-slate-900">Postes Nordeste S.A.</strong> foi fundada em 16 de novembro de 1965, tendo como empresa líder a <strong className="text-slate-900">INDARCO - Engenharia, Indústria e Comércio</strong>. Iniciou suas atividades em Valéria (Salvador) e rapidamente expandiu para o Centro Industrial de Aratu, construindo um parque fabril de grande capacidade.
             </p>
             <p>
-              Ao longo das décadas, implantou unidades estratégicas em <strong className="text-slate-900">Moreno (PE), Itabuna (BA), Seabra (BA) e Fortaleza (CE)</strong>, além de representantes em São Luís (MA) e Piauí — modernizando o setor elétrico e a construção civil com estruturas pré-moldadas de alto padrão.
+              Ao longo das décadas, implantou unidades estratégicas em <strong className="text-slate-900">Moreno (PE), Itabuna (BA), Seabra (BA) e Fortaleza (CE)</strong>, além de representantes em São Luís (MA) e Piauí, modernizando o setor elétrico e a construção civil com estruturas pré-moldadas de alto padrão.
             </p>
             <div className="grid grid-cols-2 gap-4 pt-2">
               <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
