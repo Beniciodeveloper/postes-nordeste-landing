@@ -27,7 +27,6 @@ const Index: React.FC = () => {
         <About />
         <Products />
         <IsoQualitySection />
-        <GovernancePolicies />
         <FinancingMarket />
         <Differentials />
         <Clients />

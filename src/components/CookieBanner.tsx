@@ -7,10 +7,13 @@ const CookieBanner: React.FC = () => {
   useEffect(() => {
     const consent = localStorage.getItem('postes_nordeste_cookie_consent');
     if (!consent) {
-      // Delay slightly for smooth appearance
-      const timer = setTimeout(() => setVisible(true), 1500);
+      const timer = setTimeout(() => setVisible(true), 500);
       return () => clearTimeout(timer);
     }
+
+    const handleOpenCookies = () => setVisible(true);
+    window.addEventListener('open_cookie_banner', handleOpenCookies);
+    return () => window.removeEventListener('open_cookie_banner', handleOpenCookies);
   }, []);
 
   const handleAccept = () => {

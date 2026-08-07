@@ -273,9 +273,9 @@ const ContactSection: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-[#FF2E17] hover:bg-[#d42512] text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center space-x-2 text-sm uppercase tracking-wider"
+                  className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center space-x-2 text-sm uppercase tracking-wider scale-100 hover:scale-[1.01]"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <MessageCircle className="w-4 h-4 fill-white text-[#25D366]" />
                   <span>Falar com Vendas no WhatsApp</span>
                 </button>
               </form>

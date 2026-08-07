@@ -21,7 +21,6 @@ const Header: React.FC<HeaderProps> = ({ onOpenWebmail }) => {
     { href: '#sobre', label: 'Nossa História' },
     { href: '#produtos', label: 'Produtos' },
     { href: '#qualidade', label: 'ISO 9001' },
-    { href: '#governanca', label: 'Governança' },
     { href: '#clientes', label: 'Clientes' },
     { href: '#contato', label: 'Unidades' },
   ];
@@ -57,19 +56,19 @@ const Header: React.FC<HeaderProps> = ({ onOpenWebmail }) => {
 
       {/* Main Nav */}
       <div className={`transition-all duration-300 ${scrolled ? 'bg-white/95 shadow-md backdrop-blur-sm' : 'bg-white border-b border-slate-100'}`}>
-        <div className="container mx-auto px-4 flex justify-between items-center h-16">
+        <div className="container mx-auto px-4 flex justify-between items-center h-20">
 
           {/* Logo */}
           <a href="#" className="flex items-center shrink-0">
             <img
               src="/Logo_PostesNordeste_logo.png"
               alt="Postes Nordeste"
-              className="h-10 md:h-12 w-auto object-contain"
+              className="h-14 md:h-16 w-auto object-contain"
             />
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-700">
+          <nav className="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-700">
             {navLinks.map(link => (
               <a key={link.href} href={link.href} className="hover:text-[#FF2E17] transition-colors whitespace-nowrap">
                 {link.label}
@@ -83,9 +82,9 @@ const Header: React.FC<HeaderProps> = ({ onOpenWebmail }) => {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 bg-[#FF2E17] hover:bg-[#d42512] text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors"
+              className="hidden sm:flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white text-sm font-bold px-5 py-3 rounded-xl shadow-md transition-all scale-100 hover:scale-[1.02]"
             >
-              <MessageCircle className="w-4 h-4" />
+              <MessageCircle className="w-4 h-4 fill-white text-[#25D366]" />
               <span>Solicitar Orçamento</span>
             </a>
 
@@ -119,7 +118,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenWebmail }) => {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-[#FF2E17] text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 text-sm"
+                  className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <MessageCircle className="w-4 h-4" />

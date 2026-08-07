@@ -16,13 +16,7 @@ const Hero: React.FC = () => {
           {/* Main Hero Content */}
           <div className="lg:col-span-7 space-y-8">
             
-            {/* Top Corporate Badge */}
-            <div className="inline-flex items-center space-x-2 bg-slate-800/80 border border-slate-700/80 rounded-full px-4 py-2 text-xs font-semibold text-slate-200 backdrop-blur-md shadow-sm">
-              <span className="flex h-2 w-2 rounded-full bg-postes-red animate-pulse"></span>
-              <span className="text-amber-400 font-bold">Desde 16 de Novembro de 1965</span>
-              <span className="text-slate-500">•</span>
-              <span>Liderança em Concreto Pré-Moldado</span>
-            </div>
+          
 
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] font-heading">
@@ -42,10 +36,10 @@ const Hero: React.FC = () => {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#FF2E17] hover:bg-[#d42512] text-white font-semibold px-8 py-4 rounded-xl shadow-lg transition-all flex items-center space-x-3 text-base group"
+                className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all flex items-center space-x-3 text-base group scale-100 hover:scale-[1.02]"
               >
-                <MessageCircle className="w-5 h-5" />
-                <span>Solicitar Orçamento</span>
+                <MessageCircle className="w-5 h-5 fill-white text-[#25D366]" />
+                <span>Solicitar Orçamento no WhatsApp</span>
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
 

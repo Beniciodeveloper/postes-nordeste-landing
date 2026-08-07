@@ -180,59 +180,59 @@ const ProductCarousel: React.FC = () => {
         {filteredProducts.map((product) => (
           <div
             key={product.id}
-            className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:border-postes-red/50 transition-all duration-300 flex flex-col group"
+            className="bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group"
           >
-            {/* Product Image Container */}
-            <div className="relative aspect-[4/3] bg-slate-100 overflow-hidden">
+            {/* Product Image Container (Complete Image View) */}
+            <div className="relative h-60 bg-slate-50 p-4 flex items-center justify-center border-b border-slate-100">
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
               />
               
               {/* Category Badge */}
-              <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-semibold px-3 py-1 rounded-full border border-slate-700/60">
+              <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-slate-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-slate-200">
                 {product.categoryName}
               </div>
 
               {/* Zoom Action Button */}
               <button
                 onClick={() => setSelectedProduct(product)}
-                className="absolute bottom-3 right-3 bg-white/90 hover:bg-postes-red text-slate-900 hover:text-white p-2.5 rounded-xl shadow-lg transition-colors backdrop-blur-md"
-                title="Ver detalhes técnicos"
+                className="absolute bottom-3 right-3 bg-white hover:bg-slate-100 text-slate-700 p-2 rounded-lg shadow-sm border border-slate-200 transition-colors"
+                title="Ver imagem completa e especificações"
               >
                 <Maximize2 className="w-4 h-4" />
               </button>
             </div>
 
             {/* Product Text Content */}
-            <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-              <div className="space-y-2">
-                <h4 className="text-lg font-bold text-slate-900 font-heading group-hover:text-postes-red transition-colors line-clamp-2">
+            <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
+              <div className="space-y-1.5">
+                <h4 className="text-base font-bold text-slate-900 font-heading line-clamp-2">
                   {product.name}
                 </h4>
-                <p className="text-slate-600 text-xs leading-relaxed line-clamp-3">
+                <p className="text-slate-500 text-xs leading-relaxed line-clamp-2">
                   {product.description}
                 </p>
               </div>
 
-              {/* Specs Highlights */}
-              <div className="space-y-1.5 pt-3 border-t border-slate-100">
+              {/* Minimal Specs */}
+              <div className="space-y-1 pt-2 border-t border-slate-100">
                 {product.specs.slice(0, 2).map((spec, idx) => (
-                  <div key={idx} className="flex items-center text-[11px] text-slate-700">
-                    <Check className="w-3.5 h-3.5 text-postes-red mr-1.5 flex-shrink-0" />
+                  <div key={idx} className="flex items-center text-[11px] text-slate-600">
+                    <Check className="w-3.5 h-3.5 text-[#FF2E17] mr-1.5 flex-shrink-0" />
                     <span className="truncate">{spec}</span>
                   </div>
                 ))}
               </div>
 
-              {/* Card Footer Button */}
+              {/* Card Action Button */}
               <button
                 onClick={() => setSelectedProduct(product)}
-                className="w-full mt-2 bg-slate-50 hover:bg-postes-red hover:text-white text-slate-800 border border-slate-200 hover:border-postes-red font-heading text-xs font-bold py-2.5 px-4 rounded-xl transition-all flex items-center justify-center space-x-2"
+                className="w-full mt-2 bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200 font-heading text-xs font-bold py-2 px-3 rounded-lg transition-all flex items-center justify-center space-x-1.5"
               >
-                <FileText className="w-4 h-4" />
-                <span>Especificações Técnicas</span>
+                <FileText className="w-3.5 h-3.5" />
+                <span>Ver Especificações Detalhadas</span>
               </button>
             </div>
           </div>
@@ -255,14 +255,14 @@ const ProductCarousel: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-8 items-start">
               {/* High-res Image */}
               <div className="space-y-3">
-                <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+                <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50 p-4 flex items-center justify-center h-64 md:h-80">
                   <img 
                     src={selectedProduct.image} 
                     alt={selectedProduct.name} 
-                    className="w-full h-64 md:h-80 object-cover"
+                    className="max-h-full max-w-full object-contain"
                   />
                 </div>
-                <span className="inline-block bg-postes-red/10 text-postes-red font-bold text-xs px-3 py-1 rounded-full">
+                <span className="inline-block bg-[#FF2E17]/10 text-[#FF2E17] font-bold text-xs px-3 py-1 rounded-full">
                   {selectedProduct.categoryName}
                 </span>
               </div>
@@ -294,11 +294,13 @@ const ProductCarousel: React.FC = () => {
 
                 <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row gap-3">
                   <a
-                    href="#contato"
+                    href={`https://wa.me/5571981148422?text=Olá!%20Gostaria%20de%20solicitar%20uma%20cotação%20para%20o%20produto:%20${encodeURIComponent(selectedProduct.name)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => setSelectedProduct(null)}
-                    className="flex-1 bg-postes-red hover:bg-postes-red-dark text-white font-bold py-3 px-4 rounded-xl text-center text-sm shadow-md transition-colors"
+                    className="flex-1 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-3 px-4 rounded-xl text-center text-sm shadow-md transition-colors flex items-center justify-center gap-2"
                   >
-                    Solicitar Cotação
+                    <span>Solicitar Cotação no WhatsApp</span>
                   </a>
                   <button
                     onClick={() => setSelectedProduct(null)}

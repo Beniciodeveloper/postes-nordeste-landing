@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenWebmail }) => {
               <img 
                 src="/Logo_PostesNordeste_logo.png" 
                 alt="Logo Postes Nordeste" 
-                className="h-12 w-auto object-contain brightness-0 invert"
+                className="h-14 md:h-16 w-auto object-contain brightness-0 invert"
               />
             </a>
 
@@ -42,28 +42,28 @@ const Footer: React.FC<FooterProps> = ({ onOpenWebmail }) => {
               Navegação
             </h4>
             <ul className="space-y-2.5 text-xs">
-              <li><a href="#sobre" className="hover:text-postes-red transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-postes-red" /> Nossa História</a></li>
-              <li><a href="#produtos" className="hover:text-postes-red transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-postes-red" /> Catálogo de Produtos</a></li>
-              <li><a href="#qualidade" className="hover:text-postes-red transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-postes-red" /> Qualidade ISO 9001</a></li>
-              <li><a href="#financiamento" className="hover:text-postes-red transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-postes-red" /> Financiamento BNDES</a></li>
-              <li><a href="#clientes" className="hover:text-postes-red transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-postes-red" /> Concessionárias</a></li>
-              <li><a href="#contato" className="hover:text-postes-red transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-postes-red" /> Nossas Unidades</a></li>
+              <li><a href="#sobre" className="hover:text-[#FF2E17] transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-[#FF2E17]" /> Nossa História</a></li>
+              <li><a href="#produtos" className="hover:text-[#FF2E17] transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-[#FF2E17]" /> Catálogo de Produtos</a></li>
+              <li><a href="#qualidade" className="hover:text-[#FF2E17] transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-[#FF2E17]" /> Qualidade ISO 9001</a></li>
+              <li><a href="#financiamento" className="hover:text-[#FF2E17] transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-[#FF2E17]" /> Financiamento BNDES</a></li>
+              <li><a href="#clientes" className="hover:text-[#FF2E17] transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-[#FF2E17]" /> Concessionárias</a></li>
+              <li><a href="#contato" className="hover:text-[#FF2E17] transition-colors flex items-center gap-1"><ChevronRight className="w-3 h-3 text-[#FF2E17]" /> Nossas Unidades</a></li>
             </ul>
           </div>
 
           {/* Governance & Policies Column */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="font-bold text-white font-heading text-sm uppercase tracking-wider flex items-center gap-1.5">
-              <Lock className="w-4 h-4 text-postes-red" />
+              <Lock className="w-4 h-4 text-[#FF2E17]" />
               <span>Governança & LGPD</span>
             </h4>
             <ul className="space-y-2 text-xs">
-              <li><a href="#governanca" className="hover:text-white transition-colors">Código de Ética e Conduta</a></li>
-              <li><a href="#governanca" className="hover:text-white transition-colors">Política Contra Corrupção</a></li>
-              <li><a href="#governanca" className="hover:text-white transition-colors">Política de Proteção de Dados (LGPD)</a></li>
-              <li><a href="#governanca" className="hover:text-white transition-colors">Política de Mudanças Climáticas</a></li>
-              <li><a href="#governanca" className="hover:text-white transition-colors">Combate ao Assédio</a></li>
-              <li><a href="#governanca" className="hover:text-white transition-colors">Compras Sustentáveis</a></li>
+              <li><span className="text-slate-400">Código de Ética e Conduta</span></li>
+              <li><span className="text-slate-400">Política Contra Corrupção</span></li>
+              <li><span className="text-slate-400">Política de Proteção de Dados (LGPD)</span></li>
+              <li><span className="text-slate-400">Política de Mudanças Climáticas</span></li>
+              <li><span className="text-slate-400">Combate ao Assédio</span></li>
+              <li><span className="text-slate-400">Compras Sustentáveis</span></li>
             </ul>
           </div>
 
@@ -87,9 +87,9 @@ const Footer: React.FC<FooterProps> = ({ onOpenWebmail }) => {
                   onOpenWebmail();
                 }
               }}
-              className="inline-flex items-center space-x-2 bg-slate-900 hover:bg-postes-red text-white px-4 py-2.5 rounded-xl border border-slate-800 hover:border-postes-red transition-all text-xs font-semibold"
+              className="inline-flex items-center space-x-2 bg-slate-900 hover:bg-[#FF2E17] text-white px-4 py-2.5 rounded-xl border border-slate-800 hover:border-[#FF2E17] transition-all text-xs font-semibold"
             >
-              <Mail className="w-4 h-4 text-postes-red group-hover:text-white" />
+              <Mail className="w-4 h-4 text-[#FF2E17] group-hover:text-white" />
               <span>Acessar Webmail Corporativo</span>
               <ExternalLink className="w-3.5 h-3.5 ml-1 opacity-70" />
             </a>
@@ -107,9 +107,14 @@ const Footer: React.FC<FooterProps> = ({ onOpenWebmail }) => {
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>© {new Date().getFullYear()} Postes Nordeste S.A. Todos os direitos reservados. CNPJ Matriz Salvador / CIA.</p>
           <div className="flex items-center space-x-6">
-            <a href="#governanca" className="hover:text-white transition-colors">Termos de Uso</a>
-            <a href="#governanca" className="hover:text-white transition-colors">Política de Privacidade</a>
-            <a href="#governanca" className="hover:text-white transition-colors">Cookies</a>
+            <span className="text-slate-400">Termos de Uso</span>
+            <span className="text-slate-400">Política de Privacidade</span>
+            <button 
+              onClick={() => window.dispatchEvent(new CustomEvent('open_cookie_banner'))} 
+              className="text-slate-300 hover:text-white underline font-semibold transition-colors"
+            >
+              Cookies (LGPD)
+            </button>
           </div>
         </div>
 
